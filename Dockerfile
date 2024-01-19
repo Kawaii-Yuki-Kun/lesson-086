@@ -1,4 +1,4 @@
-FROM golang:1.17-buster
+FROM golang:1.17-buster AS build
 
 WORKDIR /app
 
@@ -17,3 +17,5 @@ WORKDIR /
 COPY --from=build /lesson-086 /lesson-086
 
 USER nonroot:nonroot
+
+ENTRYPOINT ["/lesson-086"]
